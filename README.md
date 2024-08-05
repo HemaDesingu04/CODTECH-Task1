@@ -21,5 +21,6 @@ The objective of this project is to develop a database for managing a library's 
 - **MySQL Community Server**: To connect the database to the server.
 - **Windows Command Prompt**: To create database and handle the data.
 
-  ## OUTPUT:
-  
+## OUTPUT:
+
+![Table creation_1](https://github.com/user-attachments/assets/cdd10183-d716-46aa-a33c-af4f655cf6ac)
