@@ -1,0 +1,79 @@
+## CODE
+
+**Table Creation**
+CREATE TABLE Books (
+    BookID INT PRIMARY KEY AUTO_INCREMENT,
+    Title VARCHAR(255) NOT NULL,
+    Author VARCHAR(255) NOT NULL,
+    Genre VARCHAR(100),
+    PublishedYear INT,
+    ISBN VARCHAR(20) UNIQUE NOT NULL
+);
+
+CREATE TABLE Members (
+    MemberID INT PRIMARY KEY AUTO_INCREMENT,
+    FirstName VARCHAR(100) NOT NULL,
+    LastName VARCHAR(100) NOT NULL,
+    Email VARCHAR(255) UNIQUE NOT NULL,
+    Phone VARCHAR(20)
+);
+
+CREATE TABLE Transactions (
+    TransactionID INT PRIMARY KEY AUTO_INCREMENT,
+    BookID INT NOT NULL,
+    MemberID INT NOT NULL,
+    BorrowDate DATE NOT NULL,
+    ReturnDate DATE,
+    FOREIGN KEY (BookID) REFERENCES Books(BookID),
+    FOREIGN KEY (MemberID) REFERENCES Members(MemberID)
+);
+
+**Inserting Data**
+INSERT INTO Books (Title, Author, Genre, PublishedYear, ISBN) VALUES
+('1984', 'George Orwell', 'Dystopian', 1949, '9780451524935');
+INSERT INTO Books (Title, Author, Genre, PublishedYear, ISBN) VALUES
+('To Kill a Mockingbird', 'Harper Lee', 'Fiction', 1960, '9780061120084');
+INSERT INTO Books (Title, Author, Genre, PublishedYear, ISBN) VALUES
+('Pride and Prejudice', 'Jane Austen', 'Romance', 1813, '9781503290563');
+
+INSERT INTO Members (FirstName, LastName, Email, Phone) VALUES
+('Alice', 'Smith', 'alice.smith@example.com', '234-567-8901');
+INSERT INTO Members (FirstName, LastName, Email, Phone) VALUES
+('Bob', 'Johnson', 'bob.johnson@example.com', '345-678-9012');
+INSERT INTO Members (FirstName, LastName, Email, Phone) VALUES
+('Carol', 'Williams', 'carol.williams@example.com', '456-789-0123');
+
+INSERT INTO Transactions (BookID, MemberID, BorrowDate, ReturnDate) VALUES
+(1, 2, '2023-01-15', '2023-02-15');
+INSERT INTO Transactions (BookID, MemberID, BorrowDate, ReturnDate) VALUES
+(2, 3, '2023-01-20', NULL);
+INSERT INTO Transactions (BookID, MemberID, BorrowDate, ReturnDate) VALUES
+(3, 1, '2023-02-10', '2023-02-20');
+
+**Updating Data**
+UPDATE Books
+SET Title = 'The Great Gatsby (Revised Edition)'
+WHERE BookID = 1;
+
+UPDATE Members
+SET Email = 'john.newemail@example.com'
+WHERE MemberID = 1;
+
+UPDATE Transactions
+SET ReturnDate = CURDATE()
+WHERE TransactionID = 1;
+
+**Deleting Data**
+DELETE FROM Books
+WHERE BookID = 1;
+
+DELETE FROM Members
+WHERE MemberID = 1;
+
+DELETE FROM Transactions
+WHERE TransactionID = 1;
+
+**Retrieving Data**
+SELECT * FROM Books;
+SELECT * FROM Members;
+SELECT * FROM Transactions;
