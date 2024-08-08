@@ -13,7 +13,7 @@
 The objective of this project is to develop a database for managing a library's book inventory, members, and borrow/return transactions.
 
 ## KEY ACTIVITIES:
-- **Database Creation**: Created a database named as library library's book inventory, members and their book transactions.
+- **Database Creation**: Created a database named as library.
 - **Table Creation**: Created a table for details of 3 members, transactions, and books.
 - **Performing Queries**: Performed qureies to insert, update, delete and retrieve data. 
 
